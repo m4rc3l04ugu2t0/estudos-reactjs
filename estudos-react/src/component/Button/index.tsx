@@ -5,7 +5,7 @@ interface MyButtonProps {
   disabled: boolean;
 }
 
-console.log("testeeeeeeee");
+console.log("lobo mal");
 
 export const Button = ({ text, disabled }: MyButtonProps) => (
   <button disabled={disabled}>{text}</button>
