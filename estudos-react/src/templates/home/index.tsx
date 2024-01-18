@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
-import { fetchAPI, PostWithCover } from "./functions/fetchAPI";
+import "./style.scss";
 
-import "./App.css";
+import { fetchAPI, PostWithCover } from "../../functions/fetchAPI";
+
+import { Posts } from "../../component/posts";
+import { Button } from "../../component/Button";
 
 function App() {
   const [posts, setPosts] = useState<PostWithCover[]>([]);
@@ -17,15 +20,11 @@ function App() {
 
   return (
     <div className="container">
-      <div>
-        {posts.map((post) => (
-          <div key={post.id}>
-            <h1>{post.title}</h1>
-            <p>{post.body}</p>
-            <img src={post.cover} alt="Cover" />
-          </div>
-        ))}
-      </div>
+      {posts.map((post) => (
+        <Posts key={post.id} post={post} />
+      ))}
+      hshshshshhhsh
+      <Button text={"click"} disabled={false} />
     </div>
   );
 }
