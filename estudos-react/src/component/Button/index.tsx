@@ -1,12 +1,15 @@
+import { FC } from "react";
+
 import "./style.scss";
 
 interface MyButtonProps {
   text: string;
-  disabled: boolean;
+  disabled?: boolean;
+  onClick: () => void;
 }
 
-console.log("lobo mal");
-
-export const Button = ({ text, disabled }: MyButtonProps) => (
-  <button disabled={disabled}>{text}</button>
+export const Button: FC<MyButtonProps> = ({ text, disabled, onClick }) => (
+  <button onClick={onClick} disabled={disabled}>
+    {text}
+  </button>
 );
