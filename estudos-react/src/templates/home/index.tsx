@@ -10,6 +10,7 @@ import { Button } from "../../component/Button";
 function App() {
   const [posts, setPosts] = useState<PostWithCover[] | Error>([]);
   const [postsPerPage, setPostsPerPage] = useState<PostWithCover[] | Error>([]);
+  const [nextPosts, setNextPosts] = useState<number>(2);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,8 +28,10 @@ function App() {
 
   const loadMorePosts = () => {
     if (Array.isArray(posts)) {
-      const nextPosts = posts.slice(0, 2);
-      setPostsPerPage(nextPosts);
+      setNextPosts((prevState) => prevState + 2);
+      const nextPost = posts.slice(0, nextPosts);
+
+      setPostsPerPage(nextPost);
     }
   };
 
