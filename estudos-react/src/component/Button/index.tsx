@@ -1,12 +1,19 @@
+import { FC, useContext } from "react";
+
 import "./style.scss";
+import { PostsContext } from "../../context/contextPosts";
 
 interface MyButtonProps {
   text: string;
-  disabled: boolean;
+  disabled?: boolean;
 }
 
-console.log("teste");
+export const Button: FC<MyButtonProps> = ({ text, disabled }) => {
+  const { loadMorePosts } = useContext(PostsContext);
 
-export const Button = ({ text, disabled }: MyButtonProps) => (
-  <button disabled={disabled}>{text}</button>
-);
+  return (
+    <button onClick={loadMorePosts} disabled={disabled}>
+      {text}
+    </button>
+  );
+};

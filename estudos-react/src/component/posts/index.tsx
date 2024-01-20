@@ -1,16 +1,29 @@
-import { FC } from "react";
-import { PostWithCover } from "../../functions/fetchAPI";
+import { useContext } from "react";
+import { PostsContext } from "../../context/contextPosts";
 
-interface PostProps {
-  post: PostWithCover;
-}
+export const Posts = () => {
+  const { postsPerPage } = useContext(PostsContext);
 
-export const Posts: FC<PostProps> = ({ post }) => (
-  <div>
-    <div key={post.id}>
-      <h1>{post.title}</h1>
-      <p>{post.body}</p>
-      <img src={post.cover} alt="Cover" />
+  return (
+    <div>
+      {Array.isArray(postsPerPage) ? (
+        postsPerPage.map((post) => (
+          <div key={post.id}>
+            <h1>
+              {post.id} {post.title}
+            </h1>
+            <p>{post.body}</p>
+            <img src={post.cover} alt="Cover" />
+          </div>
+        ))
+      ) : (
+        <p>
+          Error:{" "}
+          {postsPerPage instanceof Error
+            ? postsPerPage.message
+            : "Unknown error"}
+        </p>
+      )}
     </div>
-  </div>
-);
+  );
+};
