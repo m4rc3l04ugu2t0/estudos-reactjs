@@ -1,17 +1,15 @@
 import "./style.scss";
 
 import { Posts } from "../../component/posts";
-import { Button } from "../../component/Button";
 import { PostsProvider } from "../../context/contextPosts";
 import { Header } from "../../component/Header";
 
 function App() {
   return (
     <div className="container">
-      <Header />
       <PostsProvider>
+        <Header />
         <Posts />
-        <Button text={"click"} disabled={false} />
       </PostsProvider>
     </div>
   );

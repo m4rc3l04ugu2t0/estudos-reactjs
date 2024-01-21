@@ -11,7 +11,7 @@ const defaultContextValue: PropContextPosts = {
   loadMorePosts: () => {},
 };
 
-interface PropChildren {
+export interface PropChildren {
   children: ReactNode;
 }
 

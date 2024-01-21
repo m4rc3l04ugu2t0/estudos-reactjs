@@ -1,3 +1,12 @@
+import "./style.scss";
+
 export const InputTypeSearch = () => (
-  <input type="search" name="search-posts" id="posts" />
+  <div className="container-search-posts">
+    <input
+      type="search"
+      name="search-posts"
+      id="search-posts"
+      placeholder="Pesquisar"
+    />
+  </div>
 );

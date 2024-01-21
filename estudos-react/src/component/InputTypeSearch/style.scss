@@ -1,0 +1,21 @@
+.container-search-posts {
+  width: 60%;
+}
+
+#search-posts {
+  width: 100%;
+
+  color: whitesmoke;
+
+  padding: 15px;
+
+  border-radius: 25px;
+  background-color: rgba(0, 0, 0, 0.356);
+
+  border: 0.1px solid gray;
+  outline: none;
+}
+
+#search-posts:focus {
+  outline: 1px solid rgb(0, 0, 179);
+}

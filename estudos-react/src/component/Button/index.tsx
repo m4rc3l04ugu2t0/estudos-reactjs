@@ -12,8 +12,10 @@ export const Button: FC<MyButtonProps> = ({ text, disabled }) => {
   const { loadMorePosts } = useContext(PostsContext);
 
   return (
-    <button onClick={loadMorePosts} disabled={disabled}>
-      {text}
-    </button>
+    <div className="container-button-posts">
+      <button onClick={loadMorePosts} disabled={disabled}>
+        {text}
+      </button>
+    </div>
   );
 };
