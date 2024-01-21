@@ -1,19 +1,23 @@
-import { FC, useContext } from "react";
+import { FC } from "react";
 
 import "./style.scss";
-import { PostsContext } from "../../context/contextPosts";
 
 interface MyButtonProps {
-  text: string;
-  disabled?: boolean;
+  text?: string;
+  disabled: boolean;
+  onClick?: () => void;
+  className?: string;
 }
 
-export const Button: FC<MyButtonProps> = ({ text, disabled }) => {
-  const { loadMorePosts } = useContext(PostsContext);
-
+export const Button: FC<MyButtonProps> = ({
+  text,
+  disabled,
+  onClick,
+  className,
+}) => {
   return (
     <div className="container-button-posts">
-      <button onClick={loadMorePosts} disabled={disabled}>
+      <button className={className} onClick={onClick} disabled={disabled}>
         {text}
       </button>
     </div>
