@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState, ReactNode } from "react";
 import { PostWithCover, fetchAPI } from "../../functions/fetchAPI";
+import { PropsClassName } from "../../interfaces/PropsClassName";
 
 interface PropContextPosts {
   postsPerPage: PostWithCover[] | Error;
@@ -11,7 +12,7 @@ const defaultContextValue: PropContextPosts = {
   loadMorePosts: () => {},
 };
 
-export interface PropChildren {
+export interface PropChildren extends PropsClassName {
   children: ReactNode;
 }
 

@@ -7,6 +7,7 @@ interface MyButtonProps {
   disabled: boolean;
   onClick?: () => void;
   className?: string;
+  classNameContainer?: string;
 }
 
 export const Button: FC<MyButtonProps> = ({
@@ -14,9 +15,10 @@ export const Button: FC<MyButtonProps> = ({
   disabled,
   onClick,
   className,
+  classNameContainer,
 }) => {
   return (
-    <div className="container-button-posts">
+    <div className={classNameContainer}>
       <button className={className} onClick={onClick} disabled={disabled}>
         {text}
       </button>

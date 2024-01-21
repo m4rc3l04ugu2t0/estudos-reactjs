@@ -1,12 +1,11 @@
 import { useContext } from "react";
 import { PostsContext } from "../../context/contextPosts";
-import { Section } from "../Section";
 
 export const Posts = () => {
   const { postsPerPage } = useContext(PostsContext);
 
   return (
-    <Section>
+    <div>
       {Array.isArray(postsPerPage) ? (
         postsPerPage.map((post) => (
           <div key={post.id}>
@@ -25,6 +24,6 @@ export const Posts = () => {
             : "Unknown error"}
         </p>
       )}
-    </Section>
+    </div>
   );
 };

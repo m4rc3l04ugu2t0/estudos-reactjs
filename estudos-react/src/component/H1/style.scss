@@ -2,12 +2,28 @@
   width: 100%;
   max-width: 200px;
 
-  padding: 5px;
-}
+  display: flex;
+  align-items: center;
 
-h1 {
-  width: 100%;
+  .container-button-menu {
+    button {
+      width: 50px;
+      height: 50px;
 
-  font-size: 1rem;
-  text-align: center;
+      font-size: 2.5rem;
+      color: antiquewhite;
+      background: transparent;
+
+      border: none;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  h1 {
+    font-size: 1rem;
+    text-align: center;
+  }
 }
