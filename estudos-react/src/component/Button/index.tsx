@@ -1,13 +1,13 @@
-import { FC } from "react";
+import { FC } from 'react'
 
-import "./style.scss";
+import './style.scss'
 
 interface MyButtonProps {
-  text?: string;
-  disabled: boolean;
-  onClick?: () => void;
-  className?: string;
-  classNameContainer?: string;
+  text?: string
+  disabled: boolean
+  onClick?: () => void
+  className?: string
+  classNameContainer?: string
 }
 
 export const Button: FC<MyButtonProps> = ({
@@ -15,7 +15,7 @@ export const Button: FC<MyButtonProps> = ({
   disabled,
   onClick,
   className,
-  classNameContainer,
+  classNameContainer
 }) => {
   return (
     <div className={classNameContainer}>
@@ -23,5 +23,5 @@ export const Button: FC<MyButtonProps> = ({
         {text}
       </button>
     </div>
-  );
-};
+  )
+}

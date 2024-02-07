@@ -1,6 +1,6 @@
-import "./style.scss";
+import './style.scss'
 
-import { Aside } from "../Aside";
+import { Aside } from '../Aside'
 
 export const SideBar = () => {
   return (
@@ -10,5 +10,5 @@ export const SideBar = () => {
         <li>nenenenenenen</li>
       </ul>
     </Aside>
-  );
-};
+  )
+}

@@ -1,56 +1,56 @@
-import { createContext, useEffect, useState, ReactNode } from "react";
-import { PostWithCover, fetchAPI } from "../../functions/fetchAPI";
-import { PropsClassName } from "../../interfaces/PropsClassName";
+import { createContext, useEffect, useState, ReactNode } from 'react'
+import { PostWithCover, fetchAPI } from '../../functions/fetchAPI'
+import { PropsClassName } from '../../interfaces/PropsClassName'
 
 interface PropContextPosts {
-  postsPerPage: PostWithCover[] | Error;
-  loadMorePosts: () => void;
+  postsPerPage: PostWithCover[] | Error
+  loadMorePosts: () => void
 }
 
 const defaultContextValue: PropContextPosts = {
   postsPerPage: [],
-  loadMorePosts: () => {},
-};
-
-export interface PropChildren extends PropsClassName {
-  children: ReactNode;
+  loadMorePosts: () => {}
 }
 
-const PostsContext = createContext(defaultContextValue);
+export interface PropChildren extends PropsClassName {
+  children: ReactNode
+}
+
+const PostsContext = createContext(defaultContextValue)
 
 const PostsProvider: React.FC<PropChildren> = ({ children }) => {
-  const [posts, setPosts] = useState<PostWithCover[] | Error>([]);
-  const [postsPerPage, setPostsPerPage] = useState<PostWithCover[] | Error>([]);
-  const [nextPosts, setNextPosts] = useState<number>(2);
+  const [posts, setPosts] = useState<PostWithCover[] | Error>([])
+  const [postsPerPage, setPostsPerPage] = useState<PostWithCover[] | Error>([])
+  const [nextPosts, setNextPosts] = useState<number>(2)
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await fetchAPI();
+      const data = await fetchAPI()
 
       if (data instanceof Error) {
-        console.log(data.message);
+        console.log(data.message)
       } else {
-        setPosts(data);
+        setPosts(data)
       }
-    };
+    }
 
-    fetchData();
-  }, []);
+    fetchData()
+  }, [])
 
   const loadMorePosts = () => {
     if (Array.isArray(posts)) {
-      setNextPosts((prevState) => prevState + 2);
-      const nextPost = posts.slice(0, nextPosts);
+      setNextPosts((prevState) => prevState + 2)
+      const nextPost = posts.slice(0, nextPosts)
 
-      setPostsPerPage(nextPost);
+      setPostsPerPage(nextPost)
     }
-  };
+  }
 
   return (
     <PostsContext.Provider value={{ postsPerPage, loadMorePosts }}>
       {children}
     </PostsContext.Provider>
-  );
-};
+  )
+}
 
-export { PostsProvider, PostsContext };
+export { PostsProvider, PostsContext }

@@ -1,14 +1,16 @@
-import { useContext } from "react";
-import { PostsContext } from "../../context/contextPosts";
+import './style.scss'
+
+import { useContext } from 'react'
+import { PostsContext } from '../../context/contextPosts'
 
 export const Posts = () => {
-  const { postsPerPage } = useContext(PostsContext);
+  const { postsPerPage } = useContext(PostsContext)
 
   return (
-    <div>
+    <>
       {Array.isArray(postsPerPage) ? (
         postsPerPage.map((post) => (
-          <div key={post.id}>
+          <div key={post.id} className="posts">
             <h1>
               {post.id} {post.title}
             </h1>
@@ -18,12 +20,12 @@ export const Posts = () => {
         ))
       ) : (
         <p>
-          Error:{" "}
+          Error:{' '}
           {postsPerPage instanceof Error
             ? postsPerPage.message
-            : "Unknown error"}
+            : 'Unknown error'}
         </p>
       )}
-    </div>
-  );
-};
+    </>
+  )
+}
