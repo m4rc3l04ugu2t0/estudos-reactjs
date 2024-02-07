@@ -1,15 +1,21 @@
+import { useQuery } from '@tanstack/react-query'
+import { fetchAPI } from '../../functions/fetchAPI'
 import './style.scss'
 
-import { useContext } from 'react'
-import { PostsContext } from '../../context/contextPosts'
-
 export const Posts = () => {
-  const { postsPerPage } = useContext(PostsContext)
+  const { data } = useQuery({
+    queryKey: ['posts'],
+    queryFn: fetchAPI
+  })
+
+  if (data instanceof Error) {
+    return <p>Error: {data.message}</p>
+  }
 
   return (
     <>
-      {Array.isArray(postsPerPage) ? (
-        postsPerPage.map((post) => (
+      {Array.isArray(data) ? (
+        data.map((post) => (
           <div key={post.id} className="posts">
             <h1>
               {post.id} {post.title}
@@ -19,12 +25,7 @@ export const Posts = () => {
           </div>
         ))
       ) : (
-        <p>
-          Error:{' '}
-          {postsPerPage instanceof Error
-            ? postsPerPage.message
-            : 'Unknown error'}
-        </p>
+        <p>Error</p>
       )}
     </>
   )

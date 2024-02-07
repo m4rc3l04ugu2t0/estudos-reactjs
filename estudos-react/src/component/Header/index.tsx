@@ -1,14 +1,18 @@
 import './style.scss'
-
-import { useContext } from 'react'
-import { PostsContext } from '../../context/contextPosts'
-
 import { InputTypeSearch } from '../InputTypeSearch'
 import { Button } from '../Button'
 import { H1 } from '../H1'
+import { mutationPosts } from '../../functions/muationPosts'
+import { useMutation } from '@tanstack/react-query'
+import { queryClient } from '../../service/queryClient'
 
 export const Header = () => {
-  const { loadMorePosts } = useContext(PostsContext)
+  const mutation = useMutation({
+    mutationFn: mutationPosts,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['posts'] })
+    }
+  })
 
   return (
     <header>
@@ -18,7 +22,12 @@ export const Header = () => {
         text={'click'}
         className="btn-load-more"
         disabled={false}
-        onClick={loadMorePosts}
+        onClick={() => {
+          mutation.mutate({
+            id: '44',
+            title: 'Do Laundry'
+          })
+        }}
       />
     </header>
   )
