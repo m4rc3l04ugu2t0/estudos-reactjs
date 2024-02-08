@@ -21,3 +21,11 @@ export interface ChildrenProps {
   className?: string
   className2?: string
 }
+
+export interface MyButtonProps {
+  text?: string
+  disabled: boolean
+  onClick?: () => void
+  className?: string
+  classNameContainer?: string
+}

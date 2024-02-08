@@ -1,14 +1,7 @@
 import { FC } from 'react'
 
 import './style.scss'
-
-interface MyButtonProps {
-  text?: string
-  disabled: boolean
-  onClick?: () => void
-  className?: string
-  classNameContainer?: string
-}
+import { MyButtonProps } from '../../props'
 
 export const Button: FC<MyButtonProps> = ({
   text,

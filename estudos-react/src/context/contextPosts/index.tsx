@@ -1,11 +1,11 @@
-import { createContext, useEffect, useState, ReactNode } from 'react'
-import { PostWithCover, fetchAPI } from '../../services/fetchAPI'
-import { PropsClassName } from '../../interfaces/PropsClassName'
+import { createContext, FC } from 'react'
+import { fetchAPI } from '../../services/fetchAPI'
 import { useQuery } from '@tanstack/react-query'
+import { ChildrenProps } from '../../props'
 
-const PostsContext = createContext(defaultContextValue)
+const PostsContext = createContext({})
 
-const PostsProvider: React.FC<PropChildren> = ({ children }) => {
+const PostsProvider: FC<ChildrenProps> = ({ children }) => {
   const { data } = useQuery({
     queryKey: ['posts'],
     queryFn: fetchAPI
