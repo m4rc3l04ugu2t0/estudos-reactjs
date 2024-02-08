@@ -1,9 +1,9 @@
 import { createContext, FC } from 'react'
-import { fetchAPI } from '../../services/fetchAPI'
+import { fetchAPI, PostWithCover } from '../../services/fetchAPI'
 import { useQuery } from '@tanstack/react-query'
 import { ChildrenProps } from '../../props'
 
-const PostsContext = createContext({})
+const PostsContext = createContext<PostWithCover[] | undefined>([])
 
 const PostsProvider: FC<ChildrenProps> = ({ children }) => {
   const { data } = useQuery({
@@ -15,9 +15,9 @@ const PostsProvider: FC<ChildrenProps> = ({ children }) => {
     return <p>Error: {data.message}</p>
   }
 
-  return (
-    <PostsContext.Provider value={{ data }}>{children}</PostsContext.Provider>
-  )
+  console.log(data)
+
+  return <PostsContext.Provider value={data}>{children}</PostsContext.Provider>
 }
 
 export { PostsProvider, PostsContext }

@@ -1,6 +1,6 @@
 import { PhotoProps, PostsProps } from '../../props'
 
-interface PostWithCover extends PostsProps {
+export interface PostWithCover extends PostsProps {
   cover: string
 }
 

@@ -1,17 +1,13 @@
-import { useQuery } from '@tanstack/react-query'
-import { fetchAPI } from '../../services/fetchAPI'
+// import { useQuery } from '@tanstack/react-query'
+// import { fetchAPI } from '../../services/fetchAPI'
 import './style.scss'
+import { useContext } from 'react'
+import { PostsContext } from '../../context/contextPosts'
 
 export const Posts = () => {
-  const { data } = useQuery({
-    queryKey: ['posts'],
-    queryFn: fetchAPI
-  })
+  const data = useContext(PostsContext)
 
-  if (data instanceof Error) {
-    return <p>Error: {data.message}</p>
-  }
-
+  console.log(data)
   return (
     <>
       {Array.isArray(data) ? (

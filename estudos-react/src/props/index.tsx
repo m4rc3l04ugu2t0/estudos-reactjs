@@ -2,11 +2,7 @@ export interface PostsProps {
   id: string
   title: string
   body: string
-  cover?: string
-  description: string
-  userId: number
-  author: string
-  date: string
+  userId: string
 }
 export interface PhotoProps {
   albumId: number
