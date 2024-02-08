@@ -1,19 +1,6 @@
-interface Post {
-  userId: number
-  id: number
-  title: string
-  body: string
-}
+import { PhotoProps, PostsProps } from '../../props'
 
-interface Photo {
-  albumId: number
-  id: number
-  title: string
-  url: string
-  thumbnailUrl: string
-}
-
-export interface PostWithCover extends Post {
+interface PostWithCover extends PostsProps {
   cover: string
 }
 
@@ -35,8 +22,10 @@ export const fetchAPI = async (): Promise<PostWithCover[] | Error> => {
       photoResponse.json()
     ])
 
-    const postsAndPhotos: PostWithCover[] = posts.map((post: Post) => {
-      const matchingPhoto = photos.find((photo: Photo) => photo.id === post.id)
+    const postsAndPhotos: PostWithCover[] = posts.map((post: PostsProps) => {
+      const matchingPhoto = photos.find(
+        (photo: PhotoProps) => photo.id === post.id
+      )
 
       if (matchingPhoto) {
         return { ...post, cover: matchingPhoto.url }

@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { fetchAPI } from '../../functions/fetchAPI'
+import { fetchAPI } from '../../services/fetchAPI'
 import './style.scss'
 
 export const Posts = () => {

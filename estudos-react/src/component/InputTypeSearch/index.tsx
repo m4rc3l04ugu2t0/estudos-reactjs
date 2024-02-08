@@ -1,4 +1,4 @@
-import "./style.scss";
+import './style.scss'
 
 export const InputTypeSearch = () => (
   <div className="container-search-posts">
@@ -9,4 +9,4 @@ export const InputTypeSearch = () => (
       placeholder="Pesquisar"
     />
   </div>
-);
+)

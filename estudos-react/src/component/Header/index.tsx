@@ -2,9 +2,9 @@ import './style.scss'
 import { InputTypeSearch } from '../InputTypeSearch'
 import { Button } from '../Button'
 import { H1 } from '../H1'
-import { mutationPosts } from '../../functions/muationPosts'
+import { mutationPosts } from '../../services/muationPosts'
 import { useMutation } from '@tanstack/react-query'
-import { queryClient } from '../../service/queryClient'
+import { queryClient } from '../../services/queryClient'
 
 export const Header = () => {
   const mutation = useMutation({

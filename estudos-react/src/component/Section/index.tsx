@@ -1,8 +1,8 @@
 import { FC } from 'react'
-import { PropChildren } from '../../context/contextPosts'
 
 import './style.scss'
+import { ChildrenProps } from '../../props'
 
-export const Section: FC<PropChildren> = ({ children, className }) => (
+export const Section: FC<ChildrenProps> = ({ children, className }) => (
   <section className={className || 'class-default'}>{children}</section>
 )
