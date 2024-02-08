@@ -1,7 +1,7 @@
 import { FC } from 'react'
-import { PropChildren } from '../../context/contextPosts'
 import './style.scss'
+import { ChildrenProps } from '../../props'
 
-export const Div: FC<PropChildren> = ({ className, children }) => (
+export const Div: FC<ChildrenProps> = ({ className, children }) => (
   <div className={className}>{children}</div>
 )
